@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaUserFriends, FaPlane, FaPlus, FaRegBuilding, FaTag, FaClock, FaCheck } from "react-icons/fa";
 import istanbul from "../Images/istanbul.jpg";
@@ -20,6 +21,50 @@ const visa = [
   { id: 3, country: "European(Schengen)", checkins: "234 Check Ins", img: europe },
 ];
 
+const Slider = ({ items, renderItem }) => {
+  const perPage = 3;
+  const pages = [];
+  for (let i = 0; i < items.length; i += perPage) {
+    pages.push(items.slice(i, i + perPage));
+  }
+
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % pages.length);
+    }, 2000);
+    return () => clearInterval(timer);
+  }, [pages.length]);
+
+  return (
+    <>
+      <div className="offer__slider">
+        <div
+          className="offer__track"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {pages.map((page, index) => (
+            <div className="offer__page" key={index}>
+              {page.map(renderItem)}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="offer__dots">
+        {pages.map((_, index) => (
+          <button
+            key={index}
+            className={`offer__dot ${current === index ? "offer__dot--active" : ""}`}
+            onClick={() => setCurrent(index)}
+          ></button>
+        ))}
+      </div>
+    </>
+  );
+};
+
 const Offer = () => {
   return (
     <section className="offer">
@@ -30,9 +75,10 @@ const Offer = () => {
           a world of savings and indulge in unparalleled experiences.
         </p>
 
-        <div className="offer__list">
-          {weekly.map((item) => (
-            <div className="offer__item" key={item.id}>
+        <Slider
+          items={weekly}
+          renderItem={(item) => (
+            <div className="offer__item offer__item--weekly" key={item.id}>
               <img src={item.img} alt={item.city} className="offer__img offer__img--tall" />
 
               <div className="offer__card offer__card--weekly">
@@ -61,15 +107,11 @@ const Offer = () => {
                 </Link>
               </div>
             </div>
-          ))}
-        </div>
-
-        <div className="offer__dots">
-          <button className="offer__dot"></button>
-          <button className="offer__dot"></button>
-        </div>
+          )}
+        />
       </div>
 
+      {/* Visa support */}
       <div className="offer__block">
         <h2 className="offer__title">Visa Support</h2>
         <p className="offer__text">
@@ -77,9 +119,10 @@ const Offer = () => {
           assistance and comprehensive guidance ensuring a smooth journey.
         </p>
 
-        <div className="offer__list">
-          {visa.map((item) => (
-            <div className="offer__item" key={item.id}>
+        <Slider
+          items={visa}
+          renderItem={(item) => (
+            <div className="offer__item offer__item--visa" key={item.id}>
               <img src={item.img} alt={item.country} className="offer__img offer__img--short" />
 
               <div className="offer__card offer__card--visa">
@@ -100,13 +143,8 @@ const Offer = () => {
                 </Link>
               </div>
             </div>
-          ))}
-        </div>
-
-        <div className="offer__dots">
-          <button className="offer__dot"></button>
-          <button className="offer__dot"></button>
-        </div>
+          )}
+        />
       </div>
     </section>
   );

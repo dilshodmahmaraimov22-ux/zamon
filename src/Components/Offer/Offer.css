@@ -34,25 +34,38 @@
   color: #9a9a9a;
 }
 
-/* List */
-.offer__list {
-  margin-top: 60px;
+.offer__slider {
+  margin-top: 50px;
+  overflow: hidden;
+  padding: 20px 0 50px;
+}
+
+.offer__track {
   display: flex;
-  flex-wrap: wrap;
+  transition: transform 0.6s ease;
+}
+
+.offer__page {
+  min-width: 100%;
+  display: flex;
   justify-content: center;
-  gap: 50px 40px;
 }
 
 .offer__item {
-  display: flex;
-  align-items: flex-start;
+  position: relative;
+  width: 33.333%;
+  padding: 0 12px;
   text-align: left;
 }
 
+.offer__item--visa {
+  min-height: 300px;
+}
+
 .offer__img {
-  width: 360px;
+  display: block;
+  width: 66%;
   object-fit: cover;
-  flex-shrink: 0;
 }
 
 .offer__img--tall {
@@ -64,22 +77,22 @@
 }
 
 .offer__card {
-  width: 262px;
+  position: absolute;
+  right: 12px;
+  width: 66%;
+  max-width: 262px;
   padding: 22px 24px;
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-  position: relative;
 }
 
 .offer__card--weekly {
-  margin-left: -180px;
-  margin-top: 70px;
+  top: 70px;
 }
 
 .offer__card--visa {
-  margin-left: -217px;
-  margin-top: 28px;
+  top: 28px;
 }
 
 .offer__card-top {
@@ -176,8 +189,8 @@
   background: #3f97a8;
 }
 
+/* Dots */
 .offer__dots {
-  margin-top: 40px;
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -192,6 +205,7 @@
   cursor: pointer;
 }
 
+.offer__dot--active,
 .offer__dot:hover {
   background: #55b0c0;
 }
@@ -201,30 +215,48 @@
     font-size: 22px;
   }
   .offer__block {
-    padding: 50px 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .offer__img {
-    width: 220px;
+    padding: 50px 16px;
   }
   .offer__img--tall {
-    height: 340px;
+    height: 380px;
   }
   .offer__img--short {
     height: 200px;
   }
   .offer__card {
-    width: 220px;
-    padding: 18px;
+    padding: 16px;
   }
   .offer__card--weekly {
-    margin-left: -110px;
-    margin-top: 50px;
+    top: 50px;
   }
-  .offer__card--visa {
-    margin-left: -110px;
-    margin-top: 24px;
+  .offer__item--visa {
+    min-height: 270px;
+  }
+  .offer__item {
+    padding: 0 6px;
+  }
+  .offer__card {
+    right: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .offer__page {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .offer__item {
+    width: 100%;
+    max-width: 420px;
+  }
+  .offer__img {
+    width: 70%;
+  }
+  .offer__card {
+    width: 70%;
+  }
+  .offer__img--tall {
+    height: 340px;
   }
 }
