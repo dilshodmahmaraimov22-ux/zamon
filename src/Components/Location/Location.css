@@ -12,7 +12,6 @@
   padding: 0 20px 60px;
 }
 
-/* Best locations */
 .location__best {
   max-width: 900px;
   margin: 0 auto;
@@ -133,7 +132,6 @@
   opacity: 1;
 }
 
-/* Banner */
 .location__banner {
   position: relative;
   height: 205px;
@@ -186,7 +184,6 @@
   transform: translateY(-3px);
 }
 
-/* Cards */
 .location__cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -233,7 +230,6 @@
   text-decoration: underline;
 }
 
-/* Map */
 .location__map {
   margin-top: 40px;
   height: 345px;
@@ -248,7 +244,6 @@
   border: none;
 }
 
-/* Form */
 .location__form {
   padding: 40px 40px 50px;
   background: #f9f9f9;
@@ -328,14 +323,12 @@
   font-size: 11px;
   color: #fff;
   cursor: pointer;
-  transition: background 0.3s;
 }
 
 .location__submit:hover {
   background: #3f97a8;
 }
 
-/* Tablet */
 @media (max-width: 992px) {
   .location__list {
     height: 300px;
@@ -345,7 +338,6 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .location__title {
     font-size: 20px;

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { FaExpand, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import dubai from "../../assets/loc-dubai.jpg";
-import istanbul from "../../assets/loc-istanbul.jpg";
-import antalya from "../../assets/loc-antalya.jpg";
-import sharm from "../../assets/loc-sharm.jpg";
-import tashkent from "../../assets/loc-tashkent.jpg";
-import bg from "../../assets/reservation-bg.jpg";
+import dubai from "../Images/loc-dubai.jpg";
+import istanbul from "../Images/loc-istanbul.jpg";
+import antalya from "../Images/loc-antalya.jpg";
+import sharm from "../Images/loc-sharm.jpg";
+import tashkent from "../Images/loc-tashkent.jpg";
+import bg from "../Images/reservation-bg.jpg";
 import "./Location.css";
 
 const places = [
@@ -19,7 +19,6 @@ const places = [
 const Location = () => {
   return (
     <section className="location">
-      {/* Best locations */}
       <div className="location__best">
         <h2 className="location__title">Best Locations</h2>
         <p className="location__text">
@@ -46,7 +45,6 @@ const Location = () => {
         </div>
       </div>
 
-      {/* Banner */}
       <div className="location__banner" style={{ backgroundImage: `url(${bg})` }}>
         <div className="location__overlay"></div>
         <div className="location__banner-content">
@@ -58,7 +56,6 @@ const Location = () => {
         </div>
       </div>
 
-      {/* Contact cards */}
       <div className="location__container">
         <div className="location__cards">
           <div className="location__card">
@@ -89,7 +86,6 @@ const Location = () => {
           </div>
         </div>
 
-        {/* Map */}
         <div className="location__map">
           <iframe
             title="map"
@@ -99,7 +95,6 @@ const Location = () => {
           ></iframe>
         </div>
 
-        {/* Form */}
         <form className="location__form">
           <h2 className="location__form-title">
             Make Your <span>Reservation</span> Through This <span>Form</span>
