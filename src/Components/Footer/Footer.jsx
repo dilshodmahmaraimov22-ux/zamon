@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import bg from "../../assets/footer-bg.jpg"; // o'zingizning rasm yo'lingiz
+import bg from "../Images/fbgr.jpg";
 import "./Footer.css";
 
 const Footer = () => {
