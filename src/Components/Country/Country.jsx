@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { FaUser, FaGlobe, FaHome, FaArrowRight } from "react-icons/fa";
-import train from "../../assets/train.jpg";
-import plane from "../../assets/plane.jpg";
-import dubai from "../../assets/country-dubai.jpg";
-import antalya from "../../assets/country-antalya.jpg";
-import sharm from "../../assets/sharm.jpg";
-import istanbul from "../../assets/country-istanbul.jpg";
+import train from "../Images/train.jpg";
+import plane from "../Images/plane.jpg";
+import dubai from "../Images/country-dubai.jpg";
+import antalya from "../Images/country-antalya.jpg";
+import sharm from "../Images/country-sharm.jpg";
+import istanbul from "../Images/country-istanbul.jpg";
 import "./Country.css";
 
 const explore = [
