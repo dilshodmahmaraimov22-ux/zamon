@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { FaUserFriends, FaPlane, FaPlus, FaRegBuilding, FaTag, FaClock, FaCheck } from "react-icons/fa";
-import istanbul from "../../assets/istanbul.jpg";
-import dubai from "../../assets/dubai.jpg";
-import antalya from "../../assets/antalya.jpg";
-import china from "../../assets/china.jpg";
-import hongkong from "../../assets/hongkong.jpg";
-import europe from "../../assets/europe.jpg";
+import istanbul from "../Images/istanbul.jpg";
+import dubai from "../Images/dubai.jpg";
+import antalya from "../Images/antalya.jpg";
+import china from "../Images/china.jpg";
+import hongkong from "../Images/hongkong.jpg";
+import europe from "../Images/europe.jpg";
 import "./Offer.css";
 
 const weekly = [
@@ -23,7 +23,6 @@ const visa = [
 const Offer = () => {
   return (
     <section className="offer">
-      {/* Weekly offers */}
       <div className="offer__block">
         <h2 className="offer__title">Best Weekly Offers In Each City</h2>
         <p className="offer__text">
@@ -71,7 +70,6 @@ const Offer = () => {
         </div>
       </div>
 
-      {/* Visa support */}
       <div className="offer__block">
         <h2 className="offer__title">Visa Support</h2>
         <p className="offer__text">
