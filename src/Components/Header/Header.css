@@ -206,3 +206,9 @@
     font-size: 13px;
   }
 }
+
+.header__lang--active {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

@@ -1,7 +1,21 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./Header.css";
 
+const langs = [
+  { code: "uz", label: "UZ" },
+  { code: "en", label: "ENG" },
+  { code: "ru", label: "RU" },
+];
+
 const Header = () => {
+  const { t, i18n } = useTranslation();
+
+  const changeLang = (code) => {
+    i18n.changeLanguage(code);
+    localStorage.setItem("lang", code);
+  };
+
   return (
     <header className="header">
       <div className="header__container">
@@ -13,25 +27,33 @@ const Header = () => {
         <nav className="header__nav">
           <ul className="header__list">
             <li className="header__item">
-              <Link to="/" className="header__link header__link--active">Home</Link>
+              <Link to="/" className="header__link header__link--active">{t("home")}</Link>
             </li>
             <li className="header__item">
-              <Link to="/about" className="header__link">About</Link>
+              <Link to="/about" className="header__link">{t("about")}</Link>
             </li>
             <li className="header__item">
-              <Link to="/tour" className="header__link">Tour</Link>
+              <Link to="/tour" className="header__link">{t("tour")}</Link>
             </li>
             <li className="header__item">
-              <Link to="/contact" className="header__link">Contacts</Link>
+              <Link to="/contact" className="header__link">{t("contacts")}</Link>
             </li>
           </ul>
         </nav>
 
         <div className="header__right">
           <div className="header__langs">
-            <button className="header__lang">UZ</button>
-            <button className="header__lang">ENG</button>
-            <button className="header__lang">RU</button>
+            {langs.map((lang) => (
+              <button
+                key={lang.code}
+                className={`header__lang ${
+                  i18n.language === lang.code ? "header__lang--active" : ""
+                }`}
+                onClick={() => changeLang(lang.code)}
+              >
+                {lang.label}
+              </button>
+            ))}
           </div>
 
           <div className="header__socials">
